@@ -24,14 +24,22 @@ protected:
 private:
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Components", meta = (AllowPrivateAccess = "true"))
 		UProjectileMovementComponent* ProjectileMovement;
+	
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Components", meta = (AllowPrivateAccess = "true"))
 		UStaticMeshComponent* ProjectileMesh;
+	
 	UPROPERTY(EditDefaultsOnly, Category = "Damage")
 		TSubclassOf<UDamageType> DamageType;
+	
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Move", meta = (AllowPrivateAccess = "true"))
 		float MovementSpeed = 1300;
+	
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Damage", meta = (AllowPrivateAccess = "true"))
 		float Damage = 50;
+
+	UPROPERTY(EditAnywhere, Category = "Effects")
+		UParticleSystem* HitParticle;
+
 
 	UFUNCTION()
 		void OnHit(UPrimitiveComponent* HitComp, 
