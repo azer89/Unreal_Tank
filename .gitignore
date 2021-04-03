@@ -22,5 +22,6 @@ Saved/*
 *.vspx
 *.db
 *.exp
+*.ini
 *.amplxeproj
 *.vcxproj.user

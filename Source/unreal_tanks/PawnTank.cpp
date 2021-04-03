@@ -24,7 +24,7 @@ void APawnTank::BeginPlay()
     PlayerControllerRef = Cast<APlayerController>(GetController());
 
 	// https://answers.unrealengine.com/questions/834337/how-to-show-mouse-cursor-during-gameplay-in-3rd-pe.html
-    PlayerControllerRef->SetShowMouseCursor(true);
+    //PlayerControllerRef->SetShowMouseCursor(true);
 }
 
 
@@ -33,7 +33,17 @@ void APawnTank::HandleDestruction()
     Super::HandleDestruction();
     // Hide Player. TODO - Create new function to handle this.
 
-    Destroy();
+    //Destroy();
+    bIsPlayerAlive = false;
+
+    SetActorHiddenInGame(true);
+    SetActorTickEnabled(false);
+
+}
+
+bool APawnTank::GetIsPlayerAlive()
+{
+    return bIsPlayerAlive;
 }
 
 

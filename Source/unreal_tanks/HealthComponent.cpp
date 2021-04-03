@@ -5,6 +5,8 @@
 #include "TankGameModeBase.h"
 #include "Kismet/GameplayStatics.h"
 
+#include <string>
+
 
 // Sets default values for this component's properties
 UHealthComponent::UHealthComponent()
@@ -13,7 +15,7 @@ UHealthComponent::UHealthComponent()
 	// off to improve performance if you don't need them.
 	PrimaryComponentTick.bCanEverTick = false;
 
-	Health = DefaultHealth;
+	
 	
 
 }
@@ -24,6 +26,8 @@ void UHealthComponent::BeginPlay()
 {
 	Super::BeginPlay();
 
+	Health = DefaultHealth;
+	
 	// ...
 	GameModeRef = Cast<ATankGameModeBase>(UGameplayStatics::GetGameMode(GetWorld()));
 	GetOwner()->OnTakeAnyDamage.AddDynamic(this, &UHealthComponent::TakeDamage);
@@ -37,6 +41,8 @@ void UHealthComponent::TakeDamage(AActor* DamageActor, float Damage, const UDama
 	}
 
 	Health = FMath::Clamp(Health - Damage, 0.0f, DefaultHealth);
+	
+	UE_LOG(LogTemp, Warning, TEXT("Health = %f"), Health);
 
 	if (Health <= 0)
 	{
