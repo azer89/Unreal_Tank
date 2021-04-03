@@ -30,19 +30,29 @@ private:
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Components", meta = (AllowPrivateAccess = "true"))
 		UParticleSystemComponent* ParticleTrail;
-
-	
-	UPROPERTY(EditDefaultsOnly, Category = "Damage")
-		TSubclassOf<UDamageType> DamageType;
 	
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Move", meta = (AllowPrivateAccess = "true"))
 		float MovementSpeed = 1300;
+
+	UPROPERTY(EditDefaultsOnly, Category = "Damage")
+		TSubclassOf<UDamageType> DamageType;
 	
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Damage", meta = (AllowPrivateAccess = "true"))
 		float Damage = 50;
 
 	UPROPERTY(EditAnywhere, Category = "Effects")
 		UParticleSystem* HitParticle;
+
+	UPROPERTY(EditAnywhere, Category = "Effects")
+		USoundBase* HitSound;
+	
+	UPROPERTY(EditAnywhere, Category = "Effects")
+		USoundBase* LaunchSound;
+
+	UPROPERTY(EditAnywhere, Category = "Effects")
+		TSubclassOf<UMatineeCameraShake> HitShake;
+
+
 
 
 	UFUNCTION()
