@@ -1,6 +1,5 @@
-# Unreal_Tank
-A simple mini game using Unreal 4
 
+A simple mini game using Unreal 4
 
 Video Demo: https://www.youtube.com/watch?v=6cv__gGA7Ug
 
